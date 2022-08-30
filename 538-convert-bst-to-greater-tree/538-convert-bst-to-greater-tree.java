@@ -14,19 +14,28 @@
  * }
  */
 class Solution {
-    int curSum=0;
-    void convert(TreeNode root)
-    {
-        if(root==null) return ;
-        convert(root.right);
-        root.val=root.val+curSum;
-        curSum=root.val;
-        convert(root.left);
-        
-    }
     public TreeNode convertBST(TreeNode root) {
-        convert(root);
-        return root;
+        Stack<TreeNode>st=new Stack<>();
+        int sum=0;
+        TreeNode r=root;
+        while(root!=null || !st.isEmpty())
+        {
+            if(root!=null)
+            {
+               st.push(root);
+               root=root.right;
+                
+            }
+            else
+            {
+                root=st.peek();
+                st.pop();
+                root.val=root.val+sum;
+                sum=root.val;
+                root=root.left;
+            }
+        }
+        return r;
         
     }
 }

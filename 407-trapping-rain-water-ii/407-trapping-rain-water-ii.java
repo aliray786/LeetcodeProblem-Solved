@@ -23,17 +23,19 @@ class Solution {
         if(height==null || totRow<=2 || totCol<=2) return 0;
         PriorityQueue<Cell>pq=new PriorityQueue<Cell>();
         boolean[][]vis=new boolean[totRow][totCol];
-        for(int i=0;i<totRow;i++)
-        {
-            for(int j=0;j<totCol;j++)
-            {
-                if(i==0 || j==0 || i==totRow-1 || j==totCol-1)
-                {
-                    pq.offer(new Cell(i,j,height[i][j]));
-                    vis[i][j]=true;
-                }
-            }
-        }
+      for (int i = 0; i < totRow; i++) {
+	            vis[i][0] = true;
+	            vis[i][totCol - 1] = true;
+	            pq.offer(new Cell(i, 0, height[i][0]));
+	            pq.offer(new Cell(i, totCol - 1, height[i][totCol - 1]));
+	        }
+
+	        for (int i = 0; i < totCol; i++) {
+	            vis[0][i] = true;
+	            vis[totRow - 1][i] = true;
+	            pq.offer(new Cell(0, i, height[0][i]));
+	            pq.offer(new Cell(totRow - 1, i, height[totRow - 1][i]));
+	        }
         int water=0;
         int[][]dirs=new int[][]{{-1, 0}, {1, 0}, {0, -1}, {0, 1}};
         while(!pq.isEmpty())

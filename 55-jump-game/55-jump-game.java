@@ -5,7 +5,7 @@ class Solution {
         {
             if(i>maxReachable) return false;
             maxReachable=Math.max(maxReachable,i+nums[i]);
-           // if(maxReachable>=nums.length-1) return true;
+            if(maxReachable>=nums.length-1) return true;
         }
         return true;
     }

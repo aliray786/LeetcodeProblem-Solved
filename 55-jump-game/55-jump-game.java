@@ -8,7 +8,7 @@ class Solution {
         }
         if(mem[pos]!=-1) return mem[pos];
         int farthestJump=Math.min(nums.length-1,pos+nums[pos]);
-        if(farthestJump==nums.length-1) return 1;
+        //if(farthestJump==nums.length-1) return 1;
         for(int i=pos+1;i<=farthestJump;i++)
         {
             if(canReach(nums,i)==1)

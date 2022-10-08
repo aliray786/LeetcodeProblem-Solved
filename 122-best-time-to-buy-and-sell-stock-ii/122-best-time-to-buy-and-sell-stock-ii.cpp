@@ -7,15 +7,11 @@ public:
         {
             if(prices[i]>=prices[i-1])
             {
-                sd++;
+                         profit+=(prices[i]-prices[i-1]);
+
             }
-            else
-            {
-              profit+=(prices[sd]-prices[bd]);
-              bd=sd=i;
-            }
+           
         }
-         profit+=(prices[sd]-prices[bd]);
         return profit;
     }
 };

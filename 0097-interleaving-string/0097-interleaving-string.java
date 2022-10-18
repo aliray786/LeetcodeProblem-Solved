@@ -8,7 +8,7 @@ class Solution {
         {
             return p1==len1 && p2==len2;
         }
-        String key=p1+"*"+p2+"*"+p3;
+        String key=p1+"*"+p2;
         if(mp.containsKey(key))
             return mp.get(key);
        else if(p1==len1)
